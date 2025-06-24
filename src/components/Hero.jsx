@@ -348,7 +348,7 @@ const Hero = () => {
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 <motion.img
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400"
+                  src="'https://postimg.cc/c628jtTc' target='_blank'><img src='https://i.postimg.cc/wTTc1hmn/me2.jpg' border='0' alt='me2"
                   alt="Jaydeep Kumar"
                   className="w-full h-full object-cover"
                   whileHover={{ scale: 1.1 }}
