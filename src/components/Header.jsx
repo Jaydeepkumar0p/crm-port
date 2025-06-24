@@ -202,7 +202,7 @@ const Header = () => {
             ))}
             {/* Download Resume Button */}
             <a
-              href="https://drive.google.com/file/d/1wRetSkkDAsvxAwX7_kHIgHiLZVJ7bQ5V/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1wRetSkkDAsvxAwX7_kHIgHiLZVJ7bQ5V/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="ml-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold shadow-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300"
