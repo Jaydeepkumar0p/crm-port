@@ -206,7 +206,7 @@ const Hero = () => {
               >
                 <Download size={20} className="group-hover:animate-bounce" />
                 <a
-                  href="https://drive.google.com/file/d/1PUVcLYir4Es0iYsztWcGGZFWyUW8H38q/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1wRetSkkDAsvxAwX7_kHIgHiLZVJ7bQ5V/view?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
