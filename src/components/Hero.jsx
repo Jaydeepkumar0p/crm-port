@@ -284,8 +284,8 @@ const Hero = () => {
               className="flex justify-center lg:justify-start space-x-6"
             >
               {[
-                { icon: Github, href: '#', label: 'GitHub', color: 'hover:text-gray-400' },
-                { icon: Linkedin, href: '#', label: 'LinkedIn', color: 'hover:text-blue-400' },
+                { icon: Github, href: 'https://github.com/Jaydeepkumar0p', label: 'GitHub', color: 'hover:text-gray-400' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/jaideep-kumar-000b5424b/', label: 'LinkedIn', color: 'hover:text-blue-400' },
                 { icon: Mail, href: '#contact', label: 'Email', color: 'hover:text-red-400' }
               ].map((social, index) => (
                 <motion.a
