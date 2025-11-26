@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github, Calendar, Users, MessageCircle, Plane, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, Github, Calendar, Users, MessageCircle, Plane, Utensils, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -12,6 +12,18 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const projects = [
+    {
+      title: 'Foodie - Food Ordering App',
+      description: 'A full-stack food ordering platform built with MERN stack featuring restaurant listings, menu management, cart functionality, and order tracking.',
+      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT', 'REST API'],
+      icon: Utensils,
+      color: 'from-orange-500 to-red-500',
+      features: ['Restaurant Listings', 'Menu Management', 'Shopping Cart', 'Order Tracking'],
+      longDescription: 'A comprehensive food ordering application built with the MERN stack. Features include user authentication, restaurant and menu management, shopping cart functionality, order processing, and responsive design. Includes admin panel for restaurant management and real-time order updates.',
+      demoUrl: 'https://foodie-foodorderingwebsite-1.onrender.com/',
+      githubUrl: 'https://github.com/Jaydeepkumar0p/jaydeep-ecomerce-store'
+    },
     {
       title: 'Task Manager Pro',
       description: 'A comprehensive task management application built with React and Node.js. Features include task creation, assignment, deadlines, and team collaboration.',
@@ -226,6 +238,10 @@ const Projects = () => {
                       className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex-1 justify-center relative overflow-hidden group"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(project.demoUrl, '_blank');
+                      }}
                     >
                       <motion.div
                         className="absolute inset-0 bg-white/20"
@@ -240,6 +256,10 @@ const Projects = () => {
                       className="flex items-center space-x-2 px-4 py-2 border border-gray-600 text-gray-300 rounded-lg hover:border-blue-400 hover:text-blue-400 transition-all duration-300 flex-1 justify-center"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(project.githubUrl, '_blank');
+                      }}
                     >
                       <Github size={16} />
                       <span>Code</span>
@@ -327,6 +347,8 @@ const Projects = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <motion.a
                     href={selectedProject.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex-1"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -336,6 +358,8 @@ const Projects = () => {
                   </motion.a>
                   <motion.a
                     href={selectedProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center justify-center space-x-2 px-6 py-3 border border-gray-600 text-gray-300 rounded-lg hover:border-blue-400 hover:text-blue-400 transition-all duration-300 flex-1"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
