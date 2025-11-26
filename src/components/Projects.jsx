@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github, Calendar, Users, MessageCircle, Plane, Utensils, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, Github, Calendar, Users, MessageCircle, Plane, Utensils, ShoppingCart, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -12,7 +12,30 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const projects = [
-   
+    {
+      title: 'Foodie - Food Ordering App',
+      description: 'A full-stack food ordering platform built with MERN stack featuring restaurant listings, menu management, cart functionality, and order tracking.',
+      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT', 'REST API'],
+      icon: Utensils,
+      color: 'from-orange-500 to-red-500',
+      features: ['Restaurant Listings', 'Menu Management', 'Shopping Cart', 'Order Tracking'],
+      longDescription: 'A comprehensive food ordering application built with the MERN stack. Features include user authentication, restaurant and menu management, shopping cart functionality, order processing, and responsive design. Includes admin panel for restaurant management and real-time order updates.',
+      demoUrl: 'https://foodie-foodorderingwebsite-1.onrender.com/',
+      githubUrl: 'https://github.com/Jaydeepkumar0p/jaydeep-ecomerce-store'
+    },
+    {
+      title: 'MERN Stack E-Commerce Store',
+      description: 'A full-featured e-commerce platform with product catalog, user authentication, shopping cart, payment integration, and order management system.',
+      image: 'https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=600',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT', 'Stripe API'],
+      icon: ShoppingCart,
+      color: 'from-green-500 to-emerald-500',
+      features: ['Product Catalog', 'User Authentication', 'Shopping Cart', 'Payment Processing'],
+      longDescription: 'A complete e-commerce solution built with the MERN stack. Features include user registration and authentication, product catalog with search and filtering, shopping cart functionality, secure payment processing with Stripe integration, order management, and admin dashboard for inventory management.',
+      demoUrl: 'https://jaydeep-storejs-2.onrender.com/',
+      githubUrl: 'https://github.com/Jaydeepkumar0p/jaydeep-storejs'
+    },
     {
       title: 'Task Manager Pro',
       description: 'A comprehensive task management application built with React and Node.js. Features include task creation, assignment, deadlines, and team collaboration.',
@@ -49,7 +72,18 @@ const Projects = () => {
       demoUrl: '#',
       githubUrl: '#'
     },
-    
+    {
+      title: 'Travel Advisor',
+      description: 'Travel planning application with destination recommendations, weather information, and booking integration.',
+      image: 'https://images.pexels.com/photos/1430677/pexels-photo-1430677.jpeg?auto=compress&cs=tinysrgb&w=600',
+      technologies: ['React', 'APIs', 'Node.js', 'MongoDB'],
+      icon: Plane,
+      color: 'from-orange-500 to-red-500',
+      features: ['Destination Search', 'Weather Integration', 'Travel Planning', 'Reviews & Ratings'],
+      longDescription: 'An intelligent travel planning platform that helps users discover destinations, plan itineraries, check weather conditions, and read reviews. Integrates with multiple APIs to provide comprehensive travel information and booking capabilities.',
+      demoUrl: '#',
+      githubUrl: '#'
+    }
   ];
 
   const containerVariants = {
@@ -218,7 +252,9 @@ const Projects = () => {
                       whileTap={{ scale: 0.95 }}
                       onClick={(e) => {
                         e.stopPropagation();
-                        window.open(project.demoUrl, '_blank');
+                        if (project.demoUrl !== '#') {
+                          window.open(project.demoUrl, '_blank');
+                        }
                       }}
                     >
                       <motion.div
@@ -236,7 +272,9 @@ const Projects = () => {
                       whileTap={{ scale: 0.95 }}
                       onClick={(e) => {
                         e.stopPropagation();
-                        window.open(project.githubUrl, '_blank');
+                        if (project.githubUrl !== '#') {
+                          window.open(project.githubUrl, '_blank');
+                        }
                       }}
                     >
                       <Github size={16} />
@@ -327,9 +365,12 @@ const Projects = () => {
                     href={selectedProject.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex-1"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    className={`flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex-1 ${
+                      selectedProject.demoUrl === '#' ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+                    whileHover={selectedProject.demoUrl !== '#' ? { scale: 1.05 } : {}}
+                    whileTap={selectedProject.demoUrl !== '#' ? { scale: 0.95 } : {}}
+                    onClick={(e) => selectedProject.demoUrl === '#' && e.preventDefault()}
                   >
                     <ExternalLink size={20} />
                     <span>View Live Demo</span>
@@ -338,9 +379,12 @@ const Projects = () => {
                     href={selectedProject.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 px-6 py-3 border border-gray-600 text-gray-300 rounded-lg hover:border-blue-400 hover:text-blue-400 transition-all duration-300 flex-1"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    className={`flex items-center justify-center space-x-2 px-6 py-3 border border-gray-600 text-gray-300 rounded-lg hover:border-blue-400 hover:text-blue-400 transition-all duration-300 flex-1 ${
+                      selectedProject.githubUrl === '#' ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+                    whileHover={selectedProject.githubUrl !== '#' ? { scale: 1.05 } : {}}
+                    whileTap={selectedProject.githubUrl !== '#' ? { scale: 0.95 } : {}}
+                    onClick={(e) => selectedProject.githubUrl === '#' && e.preventDefault()}
                   >
                     <Github size={20} />
                     <span>View Source Code</span>
